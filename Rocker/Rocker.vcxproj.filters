@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{3c989587-64b0-4389-8e72-d68afc51fc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Logger">
+      <UniqueIdentifier>{28378e49-21a4-4755-8077-f4453d5de6ed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="application.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Application\Logger</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="modules.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="application.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
