@@ -29,7 +29,7 @@ namespace Rocker
 	{
 		if (modules.at(0))
 			return modules.at(0)->handle;
-		Logger::Log(" [?] No Default Module Was Set for " + name + " but One Was Asked for\n");
+		Logger::Log("No Default Module Was Set for " + name + " but One Was Asked for\n");
 		return nullptr;
 	}
 
@@ -44,7 +44,7 @@ namespace Rocker
 
 		if (!exists)
 		{
-			Logger::Log("[!] Failed to Set Default Module for " + name + " as the Module Was Not Registered With the Feature\n");
+			Logger::Error("Failed to Set Default Module for " + name + " as the Module Was Not Registered With the Feature\n");
 			return false;
 		}
 
@@ -62,6 +62,7 @@ namespace Rocker
 				}
 			}
 		}
+		return true;
 	}
 
 	bool Feature::SetDefaultModule(std::string _moduleName)
@@ -75,7 +76,7 @@ namespace Rocker
 
 		if (!exists)
 		{
-			Logger::Log("[!] Failed to Set Default Module for " + name + " as the Module was not registered with the feature\n");
+			Logger::Error("Failed to Set Default Module for " + name + " as the Module was not registered with the feature\n");
 			return false;
 		}
 
@@ -93,5 +94,6 @@ namespace Rocker
 				}
 			}
 		}
+		return true;
 	}
 }

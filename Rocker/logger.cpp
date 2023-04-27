@@ -14,6 +14,17 @@ namespace Rocker
 			return false;
 	}
 
+	bool Logger::Error(std::string _logData)
+	{
+		if (CreateLogger()->enabled)
+		{
+			CreateLogger()->ErrorMethod(_logData);
+			return true;
+		}
+		else
+			return false;
+	}
+
 	Logger* Logger::CreateLogger()
 	{
 		if (!loggerInstance)

@@ -21,7 +21,7 @@ namespace Rocker
 
 	// ------------------------- MODULES ---------------------------------
 	private:
-		std::vector <ModuleHandle> modules;
+		std::vector <ModuleHandle*> modules;
 
 	public:
 		void AddModule(std::string _moduleName);
@@ -43,7 +43,7 @@ namespace Rocker
 		std::vector<Feature*> features;
 
 	public:
-		void RegisterFeature(Feature* _feature);
+		bool RegisterFeature(Feature* _feature);
 
 
 	// ------------------------- VISUALS ---------------------------------
@@ -54,12 +54,18 @@ namespace Rocker
 	
 	// ------------------------- GENERAL ---------------------------------
 	private:
+		void* SHAREDDATA;
+		bool alive;
+		void Detatch();
+		void Update();
+
 
 
 	public:
-		void Attach();
-		void Detatch();
-		void Update();
+		void Attach(void (*_preRun)());
+		void Start();
+		void Stop() { alive = false; }
+		void RegisterSharedData(void* _SHAREDDATA) { SHAREDDATA = _SHAREDDATA; };
 
 	};
 }

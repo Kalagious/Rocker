@@ -9,6 +9,7 @@ namespace Rocker
 		bool registeredEnabled;
 		std::string name;
 		std::vector<ModuleHandle*> modules;
+		void* SHAREDDATA;
 
 	public:
 		void SetEnabled(bool _enabled) { enabled = _enabled; }
@@ -17,6 +18,7 @@ namespace Rocker
 		bool IsActive() { return enabled; }
 
 		void RegisterModule(ModuleHandle* _module);
+		void RegisterSharedData(void* _SHAREDDATA) { SHAREDDATA = _SHAREDDATA; };
 		bool SetDefaultModule(ModuleHandle* _module);
 		bool SetDefaultModule(std::string _moduleName);
 
@@ -27,5 +29,6 @@ namespace Rocker
 		virtual void OnActivate() {};
 		virtual void OnDeactivate() {};
 		virtual void OnUpdate() {};
+		virtual void OnDetatch() {};
 	};
 }
