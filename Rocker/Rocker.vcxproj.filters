@@ -7,15 +7,22 @@
     <Filter Include="Application\Logger">
       <UniqueIdentifier>{28378e49-21a4-4755-8077-f4453d5de6ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Application\Feature">
+      <UniqueIdentifier>{b0f2b184-1dda-430b-bfcf-fb08bf03eefb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="application.h">
       <Filter>Application</Filter>
     </ClInclude>
     <ClInclude Include="logger.h">
       <Filter>Application\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="Rocker.h" />
+    <ClInclude Include="general.h" />
+    <ClInclude Include="feature.h">
+      <Filter>Application\Feature</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -24,6 +31,12 @@
     </ClCompile>
     <ClCompile Include="application.cpp">
       <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.cpp">
+      <Filter>Application\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="feature.cpp">
+      <Filter>Application\Feature</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

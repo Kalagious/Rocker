@@ -1,12 +1,14 @@
 #pragma once
-#include "pch.h"
+#include "general.h"
+#include "feature.h"
+#include "logger.h"
 
 namespace Rocker
 {
 	class Application
 	{
 
-	// ------------------------- Singleton --------------------------------
+	// ------------------------- SINGLETON --------------------------------
 	protected:
 		Application() {}
 		static Application* applicationInstance;
@@ -19,16 +21,45 @@ namespace Rocker
 
 	// ------------------------- MODULES ---------------------------------
 	private:
-		struct ModuleHandle
-		{
-			std::string name;
-			HMODULE	handle;
-		};
-
 		std::vector <ModuleHandle> modules;
+
 	public:
-		void AddModule(std::string moduleName);
-		HMODULE GetModule(std::string moduleName);
+		void AddModule(std::string _moduleName);
+		HMODULE GetModule(std::string _moduleName);
+
+
+
+	// ------------------------- CONSOLE ---------------------------------
+	private:
+		FILE* f;
+		bool consoleEnabled;
+
+	public:
+		void SetConsole(bool _enabled);
+
+	
+	// ------------------------- FEATURES ---------------------------------
+	private:
+		std::vector<Feature*> features;
+
+	public:
+		void RegisterFeature(Feature* _feature);
+
+
+	// ------------------------- VISUALS ---------------------------------
+	private:
+		
+	public:
+
+	
+	// ------------------------- GENERAL ---------------------------------
+	private:
+
+
+	public:
+		void Attach();
+		void Detatch();
+		void Update();
 
 	};
 }
